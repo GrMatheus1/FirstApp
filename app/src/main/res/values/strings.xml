@@ -11,4 +11,6 @@
     <string name="DigiteNome">Digite seu nome:</string>
     <string name="DigiteIdade">Digite seu ano de nascimento:</string>
     <string name="Enviar">Enviar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
