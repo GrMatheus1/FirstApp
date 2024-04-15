@@ -7,7 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import com.matheus.firstapp.databinding.FragmentCalculoBinding
+import androidx.navigation.fragment.findNavController
+import com.matheus.firstapp.databinding.FragmentPessoaBinding
 import com.matheus.firstapp.service.model.Pessoa
 import com.matheus.firstapp.viewmodel.PessoaViewModel
 
@@ -15,14 +16,14 @@ import com.matheus.firstapp.viewmodel.PessoaViewModel
 class PessoaFragment : Fragment(){
     private val viewModel: PessoaViewModel by viewModels()
 
-    private var _binding : FragmentCalculoBinding? = null
-    private val binding : FragmentCalculoBinding get() = _binding!!
+    private var _binding : FragmentPessoaBinding? = null
+    private val binding : FragmentPessoaBinding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentCalculoBinding.inflate(inflater, container, false)
+        _binding = FragmentPessoaBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -32,31 +33,46 @@ class PessoaFragment : Fragment(){
         binding.btnEnviar.setOnClickListener {
             var nome = binding.edtNome.editableText.toString()
             var anoNascimento = binding.edtNascimento.editableText.toString()
+            var faixa = ""
+            var sexo = ""
 
             if (nome != "" && anoNascimento != ""){
-                binding.tvNome.text = "Nome: $nome"
 
+                if (binding.rbMasculino.isChecked){
+                    sexo = "Masculino"
+                } else{
+                    sexo = "Feminino"
+                }
 
 //            val anoAtual = LocalDateTime.now().year
                 var idade = 2024 - anoNascimento.toInt()
 
-                binding.tvIdade.text = "Idade: $idade"
+                // Faixa Etária
+                if (idade <= 12){
+                    faixa = "Criança"
+                } else if (idade <= 17){
+                    faixa = "Adolescente"
+                } else if (idade <= 64){
+                    faixa = "Adulto"
+                } else{
+                    faixa = "Idoso"
+                }
 
                 val pessoa = Pessoa(
                     nome = nome,
-                    idade = idade
+                    idade = idade,
+                    faixa = faixa,
+                    sexo = sexo
                 )
 
                 viewModel.insert(pessoa)
 
                 binding.edtNome.editableText.clear()
                 binding.edtNascimento.editableText.clear()
+                findNavController().navigateUp()
             } else {
-                Toast.makeText(requireContext(), "DIGITA AI SEU FDP", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "DIGITA AI", Toast.LENGTH_LONG).show()
             }
-
-
-
         }
     }
 }

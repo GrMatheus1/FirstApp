@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.matheus.firstapp.R
-import com.matheus.firstapp.databinding.FragmentCalculoBinding
 import com.matheus.firstapp.databinding.FragmentVerificaBinding
 
 
