@@ -14,10 +14,13 @@ import com.matheus.firstapp.service.model.Pessoa
 class PessoaAdapter(pessoas: List<Pessoa>?, private val clickListListener: (Pessoa) -> Unit):
     RecyclerView.Adapter<PessoaAdapter.PessoaViewHolder>(){
 
+        //Criar uma lista vazia de pessoas
         private var pessoaList: List<Pessoa> = arrayListOf()
 
     class PessoaViewHolder (private val binding: ListItemPessoaBinding):
             RecyclerView.ViewHolder(binding.root){
+
+                //Carrega as informações da pessoa na lista
                 fun bind(pessoa: Pessoa, clickListListener: (Pessoa) -> Unit ){
                     binding.tvNome.text = pessoa.nome
                     binding.tvIdade.text = pessoa.idade.toString()
@@ -31,6 +34,7 @@ class PessoaAdapter(pessoas: List<Pessoa>?, private val clickListListener: (Pess
                         binding.imgFeminino.visibility = View.VISIBLE
                     }
 
+                    //Configura o click de algum item da lista
                     binding.root.setOnClickListener{
                         clickListListener(pessoa)
                     }

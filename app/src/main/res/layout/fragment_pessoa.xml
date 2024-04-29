@@ -75,6 +75,16 @@
         android:textSize="24sp"
         android:textStyle="bold"
         tools:ignore="HardcodedText" />
+    <Button
+        android:id="@+id/btnDeletar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Excluir"
+        android:visibility="invisible"
+        android:textStyle="bold"
+        style="@style/Widget.Material3.Button.OutlinedButton" />
 
 
 

@@ -8,13 +8,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="30dp"
-        >
+        android:layout_margin="20dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp"
-            >
+            android:padding="10dp">
             <TextView
                 android:id="@+id/lblNome"
                 android:layout_width="wrap_content"
@@ -27,8 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Matheus"
-                android:textSize="14sp"
-                />
+                android:textSize="14sp" />
             <TextView
                 android:id="@+id/lblIdade"
                 android:layout_width="wrap_content"
@@ -41,8 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="17"
-                android:textSize="14sp"
-                />
+                android:textSize="14sp" />
             <TextView
                 android:id="@+id/lblFaixa"
                 android:layout_width="wrap_content"
@@ -66,18 +62,17 @@
 
             <ImageView
                 android:id="@+id/imgMasculino"
-                android:src="@drawable/ic_masculino"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
-
+                android:src="@drawable/masculino"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
             <ImageView
-            android:id="@+id/imgFeminino"
-            android:src="@drawable/masculino"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
+                android:id="@+id/imgFeminino"
+                android:src="@drawable/feminino"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+
+
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
